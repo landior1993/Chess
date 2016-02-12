@@ -1,16 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.saphala.chess.MainActivity">
+    tools:context=".MainActivity" >
 
+    <GridLayout
+        android:id="@+id/gridChess"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+
+    </GridLayout>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textSize="25dp"
+        android:id="@+id/textview"
+        android:layout_marginBottom="15dp"
+        android:layout_alignBottom="@id/gridChess"
+        android:text=""
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="25dp"
+        android:text="CHESS"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/textInfo"
+        android:textSize="25dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:layout_above="@+id/textview"
+        android:text="Papan catur akan ter-update secara otomatis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
