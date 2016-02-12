@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String SERVER_NAME = "xinuc.org";
     public static final String SERVER_PORT = "7387";
     private int jml = 0;
-    private ClientAsyncTask clientAST;
+    private ClientAsyncTask client;
     private Initials init;
     private HashMap<Character,Integer>map = new HashMap<>();
     private HashMap<Integer,Integer> hashTinggi = new HashMap<>();
@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         textviewInfo = (TextView) findViewById(R.id.textInfo);
         textviewInfo.setVisibility(View.GONE);
         if (CheckInternet.isNetworkAvailable(this)) {
-            clientAST = new ClientAsyncTask();
+            client = new ClientAsyncTask();
             String [] tcpDetails = new String[]{SERVER_NAME, SERVER_PORT};
-            clientAST.execute(tcpDetails);
+            client.execute(tcpDetails);
             textviewInfo.setVisibility(View.VISIBLE);
         } else {
             textviewInfo.setVisibility(View.GONE);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        if (clientAST!=null) clientAST.cancel(true); //tutup socket waktu user keluar dari app
+        if (client !=null) client.cancel(true); //tutup socket waktu user keluar dari app
         super.onDestroy();
     }
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 InputStream is = socket.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
                 result = br.readLine();
-                while (result != null && !clientAST.isCancelled()){
+                while (result != null && !client.isCancelled()){
                     updateText(result);
                     System.out.println(jml++ + " " + result);
                     result = br.readLine();
