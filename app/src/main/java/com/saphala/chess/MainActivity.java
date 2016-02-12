@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    // update UI
     public void updateText(final String s){
         runOnUiThread(new Runnable() {
             @Override
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                     int tinggiAtas = s.charAt(i+2);
                     tinggiAtas-=48;
 
-                    // update UI
                     if (s.charAt(i) == 'K') init.setImageGrid(hashTinggi.get(tinggiAtas),panjangBawah,'K');
                     else if (s.charAt(i) == 'Q') init.setImageGrid(hashTinggi.get(tinggiAtas),panjangBawah,'Q');
                     else if (s.charAt(i) == 'B') init.setImageGrid(hashTinggi.get(tinggiAtas),panjangBawah,'B');
